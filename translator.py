@@ -25,4 +25,17 @@ seclect_to = ttk.Combobox(root, values=LangValue, state="r")
 seclect_to.grid(column=3, row=1,  padx=20, pady=10)
 seclect_to.set("vietnamese")
 
+input_from = Text()
+input_from.place(x=10, y=100, width=440, height=200)
+
+input_to = Text()
+input_to.place(x=10, y=310, width=440, height=200)
+
+
+Trans_btn = ttk.Button(root, text="Translate", command=Translate)
+Trans_btn.place(x=10, y=520, width=215, height=45)
+
+Clear_btn = ttk.Button(root, text="Clear all", command=Clear)
+Clear_btn.place(x=235, y=520, width=215, height=45)
+
 root.mainloop()
