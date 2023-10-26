@@ -31,6 +31,26 @@ input_from.place(x=10, y=100, width=440, height=200)
 input_to = Text()
 input_to.place(x=10, y=310, width=440, height=200)
 
+def Translate():
+    global LANGUAGES
+    lang_in = seclect_from.get()
+    lang_out = seclect_to.get()
+    input1 = input_from.get(1.0,END)
+    if (input1):
+        for i,j in LANGUAGES.items():
+            if (j == lang_in):
+                Lang_in = i
+        for i,j in LANGUAGES.items():
+            if (j == lang_out):
+                Lang_out = i
+        word = TextBlob(input1)
+        # Lang_in = word.detect_language()
+        text_late = word.translate(from_lang=str(Lang_in), to=str(Lang_out))
+        input_to.delete(1.0, END)
+        input_to.insert(END,text_late)
+def Clear():
+    input_from.delete(1.0,END)   
+    input_to.delete(1.0,END)   
 
 Trans_btn = ttk.Button(root, text="Translate", command=Translate)
 Trans_btn.place(x=10, y=520, width=215, height=45)
